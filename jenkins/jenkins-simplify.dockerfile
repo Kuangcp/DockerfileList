@@ -1,3 +1,5 @@
+# simple and crude 
+
 FROM frolvlad/alpine-oraclejdk8:slim
 
 COPY . . 
