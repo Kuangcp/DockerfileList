@@ -1,4 +1,5 @@
 # simple and crude 
+# empty dir, with jenkins*.war
 
 FROM frolvlad/alpine-oraclejdk8:slim
 
