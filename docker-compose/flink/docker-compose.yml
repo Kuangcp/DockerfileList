@@ -9,6 +9,8 @@ services:
     command: jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    volumes:
+      - /etc/localtime:/etc/localtime
 
   taskmanager:
     image: ${FLINK_DOCKER_IMAGE_NAME:-flink}
@@ -22,3 +24,5 @@ services:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    volumes:
+      - /etc/localtime:/etc/localtime

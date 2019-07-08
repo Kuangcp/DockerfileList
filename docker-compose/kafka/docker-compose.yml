@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  zookeeper:
+    image: ${ZOOKEEPER_DOCKER_IMAGE_NAME:-wurstmeister/zookeeper}
+    expose:
+      - "2181"
+    ports:
+      - "2181:2181"
+    volumes:
+      - /etc/localtime:/etc/localtime
+
+  kafka:
+    image: ${KAFKA_DOCKER_IMAGE_NAME:-wurstmeister/kafka}
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    links:
+      - "zookeeper:zookeeper"
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_HOST_NAME=localhost
+      - KAFKA_ADVERTISED_PORT=9092
+    volumes:
+      - /etc/localtime:/etc/localtime
+
