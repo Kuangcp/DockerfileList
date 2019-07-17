@@ -9,6 +9,7 @@ services:
     command: jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime
 
@@ -24,5 +25,6 @@ services:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime

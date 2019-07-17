@@ -6,6 +6,8 @@ services:
       - "2181"
     ports:
       - "2181:2181"
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime
 
@@ -21,6 +23,7 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_HOST_NAME=localhost
       - KAFKA_ADVERTISED_PORT=9092
+      - TZ=Asia/Shanghai
     volumes:
       - /etc/localtime:/etc/localtime
 
