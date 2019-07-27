@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  db:
+  main:
     image: ${MYSQL_DOCKER_IMAGE_NAME:-mysql:5.7}
     expose:
       - "3306"
