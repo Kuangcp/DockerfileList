@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+  mysql:
+    image: ${MYSQL_DOCKER_IMAGE_NAME:-mysql:5.7}
+    expose:
+      - "3306"
+    ports:
+      - "3360:3306"
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=jiushi
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./mysql.conf:/etc/mysql/conf.d/docker.cnf
