@@ -7,8 +7,8 @@ services:
             - "6380:6380"
         volumes:
             - ./conf/redis-6380.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
 
     redis-cluster-6381:
@@ -18,8 +18,8 @@ services:
             - "6381:6381"
         volumes:
             - ./conf/redis-6381.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
 
     redis-cluster-6382:
@@ -29,8 +29,8 @@ services:
             - "6382:6382"
         volumes:
             - ./conf/redis-6382.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
 
     redis-cluster-6383:
@@ -40,8 +40,8 @@ services:
             - "6383:6383"
         volumes:
             - ./conf/redis-6383.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
 
     redis-cluster-6384:
@@ -51,8 +51,8 @@ services:
             - "6384:6384"
         volumes:
             - ./conf/redis-6384.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
 
     redis-cluster-6385:
@@ -62,6 +62,6 @@ services:
             - "6385:6385"
         volumes:
             - ./conf/redis-6385.conf:/usr/local/etc/redis/redis.conf
-            - ./log:/var/log/redis
-            - ./data:/data/redis
+            - /tmp/redis-cluster/log:/var/log/redis
+            - /tmp/redis-cluster/data:/data/redis
         command: sh -c "redis-server /usr/local/etc/redis/redis.conf"
