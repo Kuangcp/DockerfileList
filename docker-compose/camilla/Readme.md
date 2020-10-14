@@ -1,4 +1,0 @@
-## Camilla
-
-> docker-compose up
-
