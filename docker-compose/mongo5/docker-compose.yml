@@ -1,0 +1,28 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo:5.0.3
+    restart: always
+    ports: 
+    - 27017:27017
+    volumes:
+    - /data/mongodata/data:/data
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pqadmin
+      MONGO_INITDB_ROOT_PASSWORD: YRNokvYviHa
+    command: --wiredTigerCacheSizeGB 0.8 
+    # --config /etc/mongo/mongod.conf
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: pqadmin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: YRNokvYviHa
+      ME_CONFIG_SITE_BASEURL: /mongo
+      ME_CONFIG_MONGODB_URL: mongodb://pqadmin:YRNokvYviHa@mongo:27017/
