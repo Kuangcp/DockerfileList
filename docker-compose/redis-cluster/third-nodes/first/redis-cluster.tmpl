@@ -1,0 +1,14 @@
+port ${PORT}
+requirepass puu20.v
+masterauth puu20.v
+protected-mode no
+daemonize no
+appendonly yes
+maxmemory 1GB
+maxmemory-policy allkeys-lru
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+cluster-announce-ip 192.168.16.203
+cluster-announce-port ${PORT}
+cluster-announce-bus-port 1${PORT}

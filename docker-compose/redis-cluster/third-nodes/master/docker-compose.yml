@@ -1,0 +1,33 @@
+version: '3'
+services:
+  redis_6589:
+    image: 'redis:7'
+    container_name: 'redis_6589'
+    restart: always
+    network_mode: "host"
+    volumes:
+     - './6589/data:/data'
+     - './6589/conf/redis.conf:/usr/local/etc/redis/redis.conf'
+    command: redis-server /usr/local/etc/redis/redis.conf
+  redis_6590:
+    image: 'redis:7'
+    container_name: 'redis_6590'
+    restart: always
+    network_mode: "host"
+    volumes:
+     - './6590/data:/data'
+     - './6590/conf/redis.conf:/usr/local/etc/redis/redis.conf'
+    command: redis-server /usr/local/etc/redis/redis.conf
+  redis-exporter:
+    image: oliver006/redis_exporter
+    container_name: redis-test-exporter
+    restart: unless-stopped
+    network_mode: "host"
+    command:
+      - '-redis.password-file=/redis_pwd.json'
+      - '-redis.addr=""'
+      - '-redis-only-metrics=true'
+      - '-is-cluster=true'
+    volumes:
+      - '/usr/share/zoneinfo/PRC:/etc/localtime'
+      - './redis_pwd.json:/redis_pwd.json'
