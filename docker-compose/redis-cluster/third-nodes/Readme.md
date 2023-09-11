@@ -7,6 +7,7 @@
 - C节点 6389 主 6390 从
 
 
+## 搭建节点
 - 密码共享节点 A
     - 修改 tmpl 模板中的： requirepass masterauth cluster-announce-ip （当前节点的ip）
     - 修改 pwd.json 中密码
@@ -20,4 +21,8 @@
 
 - 普通节点 C
     - 重复节点B流程
+
+## 启用cluster
+
+redis-cli -a 密码 --cluster create host1:6589 host1:6590 host2:6589 host2:6590 host3:6589 host3:6590 --cluster-replicas 1
 
