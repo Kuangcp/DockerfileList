@@ -1,4 +1,5 @@
 # Use root/example as user/password credentials
+# https://hub.docker.com/_/mongo
 version: '3.1'
 
 services:
@@ -11,8 +12,8 @@ services:
     volumes:
     - /data/mongodata/data:/data
     environment:
-      MONGO_INITDB_ROOT_USERNAME: pqadmin
-      MONGO_INITDB_ROOT_PASSWORD: YRNokvYviHa
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: pwd
     command: --wiredTigerCacheSizeGB 0.8 
     # --config /etc/mongo/mongod.conf
 
@@ -22,7 +23,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: pqadmin
-      ME_CONFIG_MONGODB_ADMINPASSWORD: YRNokvYviHa
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: pwd
       ME_CONFIG_SITE_BASEURL: /mongo
-      ME_CONFIG_MONGODB_URL: mongodb://pqadmin:YRNokvYviHa@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://root:pwd@mongo:27017/
